@@ -1,0 +1,13 @@
+{% extends "bills/base.html" %}
+
+{% block content %}
+<div class="span8">
+{% for bill in bills %}
+	<div class="bill">
+		<h3><a href="#">{% firstof bill.popular_title bill.short_title bill.official_title %}</a></h3>
+		<p>{{ bill.summary|default:"" }}</p>
+		<p>Last action ({{ bill.last_action.acted_at }}): {{ bill.last_action.text }}</p>
+	</div>
+{% endfor %}
+</div>
+{% endblock content %}

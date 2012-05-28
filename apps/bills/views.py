@@ -1,20 +1,20 @@
 from django.conf import settings
 from django.core.cache import cache
-from django.views.generic import ListView, DetailView
+from django.template.response import TemplateResponse
 
 from bills.utils.rtc import RealTimeCongress
 
-rtc = RealTimeCongress(settings.SUNLIGHT_API_KEY)
+rtc = RealTimeCongress(settings.SUNLIGHT_API_KEY, cache)
 
-class BillList(ListView):
-    """
-    Base class for a list of bills. This may be filtered.
-    """
-
-    def get_queryset(self):
-    	bills = rtc.bills(**self.request.GET)
-    	return bills
+def bill_list(request, **kwargs):
+	"A filterable list of bills"
+	bills = rtc.bills(**request.GET)
+	return TemplateResponse(request, 'bills/bill_list.html', bills)
 
 
-class BillDetail(DetailView):
+def bill_detail(request, bill_id):
+	pass
+
+
+def follow_bill(request, bill_id):
 	pass

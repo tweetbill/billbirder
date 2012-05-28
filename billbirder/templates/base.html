@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+<head>
+	<title>{% block title %}BillBirder{% endblock title %}</title>
+	{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+	{% endblock css %}
+</head>
+<body>
+	<div class="container">
+		<header class="span12">
+			{% block header %}
+			<h1>BillBirder</h1>
+			{% endblock header %}
+		</header>
+		<div id="content">
+			{% block content %}{% endblock content %}
+		</div>
+		<footer id="footer">
+			{% block footer %}{% endblock footer %}
+		</footer>
+	</div>
+</body>
+</html>

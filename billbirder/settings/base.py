@@ -1,6 +1,6 @@
 # Django settings for billbirder project.
 import os
-PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))
+PROJECT_ROOT = os.path.realpath(os.path.join(os.path.dirname(__file__), '..'))
 f = lambda fn: os.path.join(PROJECT_ROOT, fn)
 
 DEBUG = True
@@ -73,7 +73,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    f('static/assets')
+    f('static'),
 )
 
 # List of finder classes that know how to find static files in
@@ -94,16 +94,6 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
-MIDDLEWARE_CLASSES = (
-    'django.middleware.common.CommonMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
-)
-
 ROOT_URLCONF = 'billbirder.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
@@ -113,20 +103,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    f('templates'),
 )
 
-INSTALLED_APPS = (
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
-    'bills',
-    'legislators',
-)
-
+INTERNAL_IPS = ('127.0.0.1',)
