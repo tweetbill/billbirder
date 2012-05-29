@@ -1,13 +1,29 @@
 {% extends "bills/base.html" %}
 
 {% block content %}
-<div class="span8">
+<div id="bills" class="span8">
+{% block deck %}
+	{% if query %}
+	<h2>Search: {{ query }}</h2>
+	{% else %}
+	<h2>Latest Bills</h2>
+	{% endif %}
+{% endblock deck %}
 {% for bill in bills %}
 	<div class="bill">
-		<h3><a href="#">{% firstof bill.popular_title bill.short_title bill.official_title %}</a></h3>
-		<p>{{ bill.summary|default:"" }}</p>
+		<h4><a href="{% url bills_bill_detail bill.bill_id %}">{% firstof bill.popular_title bill.short_title bill.official_title %}</a></h4>
+		{% if bill.summary %}
+		<blockquote>{{ bill.summary|default:"" }}</blockquote>
+		{% endif %}
 		<p>Last action ({{ bill.last_action.acted_at }}): {{ bill.last_action.text }}</p>
 	</div>
 {% endfor %}
+</div>
+<div id="sidebar" class="span4">
+	<form id="bill-search" action="{% url bills_bill_search %}">
+		<label for="q">Search Bills</label>
+		<input type="search" name="q" value="{{ query }}">
+		<input type="submit" value="Search">
+	</form>
 </div>
 {% endblock content %}

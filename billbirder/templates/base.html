@@ -9,12 +9,14 @@
 </head>
 <body>
 	<div class="container">
-		<header class="span12">
+		<header class="row">
 			{% block header %}
-			<h1>BillBirder</h1>
+			<div class="span12">
+				<h1><a href="/">BillBirder</a></h1>
+			</div>
 			{% endblock header %}
 		</header>
-		<div id="content">
+		<div id="content" class="row">
 			{% block content %}{% endblock content %}
 		</div>
 		<footer id="footer">

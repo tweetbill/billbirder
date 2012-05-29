@@ -1,0 +1,23 @@
+{% extends "bills/base.html" %}
+
+{% block content %}
+<article id="bill" class="span8">
+	<header>
+		<h2>{% firstof bill.popular_title bill.short_title bill.official_title %}</h2>
+		<form action="{% url bills_bill_follow bill.bill_id %}" method="POST">
+			{% csrf_token %}
+			{% if following %}
+			<input type="submit" value="Unfollow" name="action" class="btn">
+			{% else %}
+			<input type="submit" value="Follow" name="action" class="btn">
+			{% endif %}
+		</form>
+	</header>
+	<div id="actions">
+		{% for action in bill.actions %}
+		<p>{{ action.text }}</p>
+		<time><strong>{{ action.acted_at }}</strong></time>
+		{% endfor %}
+	</div>
+</article>
+{% endblock content %}
