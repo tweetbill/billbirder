@@ -20,6 +20,13 @@ def bill_list(request, **kwargs):
       bills: a list of bills matching search params
     """
     bills = rtc.bills(**request.GET)
+    if request.user.is_authenticated():
+        following = set(request.user.bills.values_list('id', flat=True))
+        for bill in bills.get('bills', []):
+            if bill.get('bill_id') in following:
+                bill['following'] = True
+            else:
+                bill['following'] = False
     return TemplateResponse(request, 'bills/bill_list.html', bills)
 
 
