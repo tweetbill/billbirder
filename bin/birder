@@ -27,7 +27,7 @@ GUNICORN="/home/rsholin/bin/gunicorn"
 PROJECTLOC="/home/rsholin/webapps/birder/billbirder"
 
 # The default args for gunicorn_django see http://gunicorn.org/configure.html#contents
-DEFAULT_ARGS="--workers=2 "
+DEFAULT_ARGS="-w 2 -k gevent "
 
 # Do not edit below this line
 BASE_CMD="$PYTHON $PROJECTLOC/manage.py run_gunicorn $DEFAULT_ARGS"
