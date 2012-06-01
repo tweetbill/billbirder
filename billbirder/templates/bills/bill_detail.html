@@ -4,6 +4,7 @@
 <article id="bill" class="span8">
 	<header>
 		<h2>{% firstof bill.popular_title bill.short_title bill.official_title %}</h2>
+		{% if user.is_authenticated %}
 		<form action="{% url bills_bill_follow bill.bill_id %}" method="POST">
 			{% csrf_token %}
 			{% if following %}
@@ -12,6 +13,7 @@
 			<input type="submit" value="Follow" name="action" class="btn">
 			{% endif %}
 		</form>
+		{% endif %}
 	</header>
 	<div id="actions">
 		{% for action in bill.actions %}

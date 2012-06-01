@@ -12,6 +12,7 @@
 {% for bill in bills %}
 	<div class="bill">
 		<h4><a href="{% url bills_bill_detail bill.bill_id %}">{% firstof bill.popular_title bill.short_title bill.official_title %}</a></h4>
+		{% if user.is_authenticated %}
 		<form method="POST" action="{% url bills_bill_follow bill.bill_id %}">
 			{% csrf_token %}
 			{% if bill.following %}
@@ -20,6 +21,7 @@
 			<input type="submit" value="Follow" class="btn btn-primary">
 			{% endif %}
 		</form>
+		{% endif %}
 		{% if bill.summary %}
 		<blockquote>{{ bill.summary|default:"" }}</blockquote>
 		{% endif %}
