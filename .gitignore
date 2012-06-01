@@ -10,7 +10,6 @@ dist
 build
 eggs
 parts
-bin
 var
 sdist
 develop-eggs
@@ -35,4 +34,5 @@ nosetests.xml
 # django
 *.sqlite
 *.db
+*.pid
 billbirder/settings/local.py
