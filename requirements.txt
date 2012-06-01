@@ -1,0 +1,8 @@
+Django==1.4
+django-debug-toolbar==0.9.4
+django-model-utils==1.1.0
+docutils==0.9
+geopy==0.94.2
+httplib2==0.7.4
+ipython==0.12.1
+-e git://github.com/tweetbill/simple-sunlight.git@204f08d1597587a52eafdaf9e1190eddc5581a77#egg=simple_sunlight-dev
