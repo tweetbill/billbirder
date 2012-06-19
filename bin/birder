@@ -11,7 +11,7 @@
 WORKON_HOME=/home/rsholin/webapps/birder
 . $WORKON_HOME/bin/activate
 
-# The servers IP adderss, this should be 127.0.0.1. 
+# The servers IP address, this should be 127.0.0.1. 
 ADDRESS='127.0.0.1'
 
 # The port of your Django app. This will be located within the control panel in the applications details. 
