@@ -17,6 +17,10 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^', include('bills.urls')),
+    
+	# twitter auth stuff here    
+ 
+    url(r'^', include('twython_django_oauth.urls')),
 )
 
 urlpatterns += staticfiles_urlpatterns()
