@@ -107,3 +107,14 @@ TEMPLATE_DIRS = (
 )
 
 INTERNAL_IPS = ('127.0.0.1',)
+
+
+# Here are the settings for twython_django_oauth (https://github.com/zandeez/twython-django)
+
+TWITTER_KEY = 'your_key'
+TWITTER_SECRET = 'your_secret'
+LOGIN_URL='/your_url_extension/login'
+LOGOUT_URL='/your_url_extension/logout'
+LOGIN_REDIRECT_URL='/'
+LOGOUT_REDIRECT_URL='/'
+

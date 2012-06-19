@@ -22,7 +22,8 @@ INSTALLED_APPS = (
     'debug_toolbar',
     'gunicorn',
     'twython',
-
+    'twython_django_oauth',
+    
     # core
     'bills',
     'legislators',
