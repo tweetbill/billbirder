@@ -1,4 +1,16 @@
-footer li {
-	float:left;
-	margin-right:20px;
+footer {
+	margin: 2em 20px;
+	background-color: #333;
+	color: #eee;
 }
+
+footer li {
+	list-style: disc;
+	float:left;
+	padding-right:20px;
+}
+
+footer a {
+	color:#fff;
+}
+
